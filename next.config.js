@@ -1,3 +1,6 @@
-const withSass = require('@zeit/next-sass')
+const withSass = require('@zeit/next-sass');
+const extraConfig = require('./next.extra.config');
 
-module.exports = withSass();
+module.exports = withSass({
+    ...extraConfig
+});

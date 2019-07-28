@@ -1,5 +1,8 @@
+import getConfig from 'next/config';
+
 const Index = () => {
-    return <div>Welcome to Next.js!</div>;
+  const { publicRuntimeConfig } = getConfig();
+    return <div>The environment is: <strong>{publicRuntimeConfig.env}</strong></div>;
   }
   
 export default Index;
