@@ -2,7 +2,7 @@ import getConfig from 'next/config';
 import styled from 'styled-components';
 
 const StyledDiv =  styled.div`
-font-family: san-sarif;
+  font-family: Sans-serif;
   padding: 50px;
   font-size: 20px;
 `;
