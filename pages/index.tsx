@@ -1,5 +1,6 @@
 import getConfig from 'next/config';
 import styled from 'styled-components';
+import { Test } from '../src/test';
 
 const StyledDiv =  styled.div`
   font-family: Sans-serif;
@@ -9,7 +10,13 @@ const StyledDiv =  styled.div`
 
 const Index = () => {
   const { publicRuntimeConfig } = getConfig();
-    return <StyledDiv>The environment is: <strong>{publicRuntimeConfig.env}</strong></StyledDiv>;
+    return (
+      <>
+      <StyledDiv>
+        <Test name="Ali"></Test>
+        The environment is: <strong>{publicRuntimeConfig.env}</strong></StyledDiv>
+      </>
+    )
   }
   
 export default Index;
