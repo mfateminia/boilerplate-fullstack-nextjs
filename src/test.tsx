@@ -6,4 +6,4 @@ interface ITestProps {
 
 export const Test: React.FC<ITestProps> = ({name}) => {
     return <div>{`Welcome ${name}!`}</div>
-}
+};
