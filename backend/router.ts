@@ -1,9 +1,6 @@
-import {Request, Response} from 'express';
-const express = require('express');
-const router = express.Router();
+import express from 'express';
+import { TestRouter } from './modules/test/router';
 
-router.use((_: Request, res: Response) => {
-    res.send('Done!!')
-});
+export const router = express.Router();
 
-module.exports = router;
+TestRouter(router);

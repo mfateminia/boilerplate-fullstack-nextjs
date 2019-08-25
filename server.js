@@ -3,11 +3,12 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const helmet = require('helmet');
 const compression = require('compression');
-const router = require('./backend/router');
+const { router } = require('./backend/router');
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
+var isFirst = true;
 
 app.prepare().then(() => {
   const server = express();
@@ -16,7 +17,7 @@ app.prepare().then(() => {
   server.use(bodyParser.json());
   server.use(compression());
 
-  server.get('/api', router);
+  server.use('/api', router);
 
   server.get('*', (req, res) => {
     return handle(req, res);
