@@ -2,6 +2,7 @@ const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 const NodemonPlugin = require('nodemon-webpack-plugin');
 
+//https://jlongster.com/Backend-Apps-with-Webpack--Part-I
 module.exports = {
     entry: `./server.js`,
     mode: process.env.NODE_ENV || 'development',
