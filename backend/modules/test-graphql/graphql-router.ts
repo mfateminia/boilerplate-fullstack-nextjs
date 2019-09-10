@@ -1,4 +1,4 @@
-export const testGraphqlRoot = () => ({
+export const testGraphqlRoot = {
     name: () => {
         return 'Ali Fateminia';
     },
@@ -15,4 +15,4 @@ export const testGraphqlRoot = () => ({
             number: 12
         }
     }
-})
+};
