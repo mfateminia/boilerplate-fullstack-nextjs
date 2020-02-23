@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 
-export const getTestController = (req: Request, res: Response, next: NextFunction) => {
+export const getTestController = async(req: Request, res: Response, next: NextFunction) => {
     try {
         console.log('entered getTestController with this path:', req.path);
         res.send({status: 'success'});
@@ -9,7 +9,7 @@ export const getTestController = (req: Request, res: Response, next: NextFunctio
     }
 }
 
-export const postTestController = (req: Request, res: Response, next: NextFunction) => {
+export const postTestController = async(req: Request, res: Response, next: NextFunction) => {
     try {
         console.log('entered postTestController with this path:', req.path);
         res.send({status: 'success'});

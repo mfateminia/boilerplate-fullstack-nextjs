@@ -4,16 +4,14 @@ const express = require('express');
 const helmet = require('helmet');
 const compression = require('compression');
 const { router } = require('./backend/router');
-const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
-const initMongodb = require('./backend/services/mongodb').initMongodb;
+// const mongodb = require('./backend/services/mongodb').mongodb;
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
 
 app.prepare().then(() => {
-  initMongodb();
   const server = express();
 
   server.use(helmet());
