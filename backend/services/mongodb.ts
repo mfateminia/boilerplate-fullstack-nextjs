@@ -1,6 +1,6 @@
 import {MongoClient, Db, MongoClientOptions} from 'mongodb';
 import {config} from '../config';
-// import assert from 'assert';
+import { waitForSomeSeconds } from '../utils/time';
 
 export class MongoDb {
   //@ts-ignore
@@ -24,7 +24,8 @@ export class MongoDb {
     try {
       this.client = await MongoClient.connect(url, clientConfig);
 
-      console.debug('MongoDB client connected');
+      console.debug('===> MongoDB client connected');
+
       this.db = this.client.db(config.mongo.dbName);
 
       this.indexes.forEach(({ collection, index }) => {
@@ -32,9 +33,9 @@ export class MongoDb {
       });
       this.promises.forEach(resolve => resolve());
     } catch (e) {
-      console.warn('MongoDB client connect failed. Retrying...');
-      // console.warn(e);
-      // await waitForSomeSeconds(1500);
+      console.warn('===> MongoDB client connect failed. Retrying...');
+      console.warn(e);
+      await waitForSomeSeconds(1500);
       this.init();
     }
   }
@@ -58,4 +59,6 @@ export class MongoDb {
     return this.client && this.client.close();
   }
   
-} 
+}
+
+export const mongodb = new MongoDb();

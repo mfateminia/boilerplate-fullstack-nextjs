@@ -4,8 +4,7 @@ const express = require('express');
 const helmet = require('helmet');
 const compression = require('compression');
 const { router } = require('./backend/router');
-const assert = require('assert');
-// const mongodb = require('./backend/services/mongodb').mongodb;
+
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
